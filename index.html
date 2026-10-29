@@ -8,7 +8,7 @@
 :root{
   --bg:#eef1f4; --panel:#ffffff; --ink:#18212b; --muted:#5a6775; --line:#d5dbe2;
   --land:#f7f8fa; --county:#e3e7ec; --state:#a9b3bf; --accent:#1f5fa8; --focus:#1f5fa8;
-  --c0:#3a78c2; --c1:#d99100; --c2:#d0402f; --c3:#8a52c4; --c4:#5f7d6c; --cam:#0d1b2a; --camhit:#e0006f;
+  --c0:#3a78c2; --c1:#d99100; --c2:#d0402f; --c3:#8a52c4; --c4:#5f7d6c; --c5:#7a6a55; --cam:#0d1b2a; --camhit:#e0006f;
   --f-display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
   --f-body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
   --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
@@ -16,11 +16,11 @@
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#0f141a; --panel:#161d25; --ink:#e6ebf0; --muted:#93a1af; --line:#28323d;
   --land:#1a222b; --county:#232c36; --state:#4a5765; --accent:#7fb2ef; --focus:#7fb2ef;
-  --c0:#5d9be3; --c1:#f2b233; --c2:#f06a58; --c3:#b183ea; --c4:#8eab99; --cam:#f4f7fa; --camhit:#ff4fa3; color-scheme:dark }}
+  --c0:#5d9be3; --c1:#f2b233; --c2:#f06a58; --c3:#b183ea; --c4:#8eab99; --c5:#c2a983; --cam:#f4f7fa; --camhit:#ff4fa3; color-scheme:dark }}
 :root[data-theme="dark"]{
   --bg:#0f141a; --panel:#161d25; --ink:#e6ebf0; --muted:#93a1af; --line:#28323d;
   --land:#1a222b; --county:#232c36; --state:#4a5765; --accent:#7fb2ef; --focus:#7fb2ef;
-  --c0:#5d9be3; --c1:#f2b233; --c2:#f06a58; --c3:#b183ea; --c4:#8eab99; --cam:#f4f7fa; --camhit:#ff4fa3; color-scheme:dark }
+  --c0:#5d9be3; --c1:#f2b233; --c2:#f06a58; --c3:#b183ea; --c4:#8eab99; --c5:#c2a983; --cam:#f4f7fa; --camhit:#ff4fa3; color-scheme:dark }
 html,body{height:100%}
 body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.45}
 *{box-sizing:border-box}
@@ -216,7 +216,7 @@ const W0 = 975, H0 = 610;
 const proj = d3.geoAlbersUsa().scale(1300).translate([W0/2, H0/2]);
 
 let cats = [], A = [], counties, states, nation, countyPath = new Map(), statePath = new Map(), countyFeat = new Map();
-let catOn = [true,true,true,true,true];
+let catOn = [true,true,true,true,true,true];
 let tMin, tMax, winDays = 30, tEnd, playing = false, playTimer = null;
 let filtered = [], selected = null, cameras = [], camHits = new Map(); // alert idx -> {inside:[cam], near:[cam]}
 let camSets = {}, customCams = [];

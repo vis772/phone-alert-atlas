@@ -132,7 +132,8 @@ textarea{width:100%;min-height:150px;background:var(--bg);border:1px solid var(-
     <div class="sec">
       <span class="lbl">Cameras</span>
       <select id="camSet" aria-label="Camera set">
-        <option value="master">Our camera list (144 located)</option>
+        <option value="all">Our list + all MN &amp; WI DOT cameras</option>
+        <option value="master">Our camera list (144 located, no MN)</option>
         <option value="mn">All Minnesota DOT cameras</option>
         <option value="wi">All Wisconsin DOT cameras</option>
         <option value="mo">All Missouri DOT cameras</option>
@@ -478,11 +479,12 @@ function setupCams(){
   $("copyHits").onclick = copyHits;
   $("camSet").onchange = ()=> useSet($("camSet").value);
   try{ const s = localStorage.getItem("cams"); if (s){ $("camText").value = s; const r = parseCams(s); if (!r.err) customCams = r.cams; } }catch(e){}
-  useSet("master");
+  useSet("all");
 }
 function useSet(k){
   const unpack = arr => (arr||[]).map(([id,name,lat,lon,access])=>({id:String(id), name, lat, lon, access}));
-  const list = k==="none" ? [] : k==="custom" ? customCams : k==="mnwi" ? [...unpack(camSets.mn), ...unpack(camSets.wi)] : unpack(camSets[k]);
+  const list = k==="none" ? [] : k==="custom" ? customCams : k==="mnwi" ? [...unpack(camSets.mn), ...unpack(camSets.wi)]
+    : k==="all" ? [...unpack(camSets.master), ...unpack(camSets.mn).map(c=>({...c,id:"MN-"+c.id})), ...unpack(camSets.wi).map(c=>({...c,id:"WI-"+c.id}))] : unpack(camSets[k]);
   $("camNote").textContent = "Matching cameras to alert areas…";
   setTimeout(()=>setCams(list), 20);
 }

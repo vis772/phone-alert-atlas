@@ -8,7 +8,9 @@ with state DOT traffic-camera locations and ±5-minute footage windows.
 ## Files
 - `index.html` – the whole app (HTML, CSS, JavaScript). Loads d3 and topojson from cdnjs.
 - `alerts.json` – 21,058 alerts (built from FEMA OpenFEMA IpawsArchivedAlerts, pulled Oct 28, 2026).
-- `cameras.json` – camera sets: `master` (144 matched master-sheet cameras), `mn`, `wi`, `mo` (state DOT lists).
+- `cameras_all.json` – 16,273 state DOT cameras with coordinates, feed status (open / sign-in / location only), county, and stream link.
+- `zips.json` – for every Census ZIP area, the alerts whose area covered at least 1% of it.
+- `cameras.json` – older camera sets (kept for reference).
 - `counties-10m.json` – US county/state boundaries (us-atlas 3.0.1).
 
 ## Run locally
@@ -19,5 +21,5 @@ Browsers block a page opened by double-click from loading its data files, so ser
     # then open http://localhost:8000
 
 ## Host it
-GitHub Pages: upload all four data files + index.html to a public repo, then
+GitHub Pages: upload all data files + index.html to a public repo, then
 Settings → Pages → Deploy from branch → main / root.

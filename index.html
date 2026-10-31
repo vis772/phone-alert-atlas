@@ -127,7 +127,7 @@ a{color:var(--accent)}
   <aside class="rail" aria-label="Filters and summary">
     <div>
       <h1>Phone Alert Atlas</h1>
-      <p class="sub">Every wireless emergency alert in FEMA's IPAWS archive since Jan 2025, drawn as the area phones received it in, with 16,000 state DOT traffic cameras.</p>
+      <p class="sub">Every wireless emergency alert in FEMA's IPAWS archive since Jan 2025, drawn as the area phones received it in, with 19,000 state DOT traffic cameras.</p>
     </div>
 
     <div class="sec">
@@ -214,13 +214,13 @@ a{color:var(--accent)}
       <p class="note">ZIP list = every ZIP code with at least 1% of its area inside an alert in the current filter. Use it to screen survey respondents.</p>
     </div>
 
-    <p class="note">Sources: FEMA OpenFEMA IPAWS Archived Alerts, pulled Oct 28, 2026 (tests, demos and cancellations removed; alerts sent by county code are drawn as whole counties). Cameras: state DOT camera lists (MnDOT, 511wi.gov, MoDOT, LA, AL, NV, DE, MD, FL, GA, PA), pulled Oct 28, 2026. ZIP areas: Census ZCTA boundaries. Times are send times; phones usually buzz within a minute. The view is saved in the page address, so you can copy the link to share exactly what you see.</p>
+    <p class="note">Sources: FEMA OpenFEMA IPAWS Archived Alerts, pulled Oct 28, 2026 (tests, demos and cancellations removed; alerts sent by county code are drawn as whole counties). Cameras: state DOT camera lists (Caltrans, MnDOT, 511wi.gov, MoDOT, LA, AL, NV, DE, MD, FL, GA, PA), pulled Oct 28–30, 2026. ZIP areas: Census ZCTA boundaries. Times are send times; phones usually buzz within a minute. The view is saved in the page address, so you can copy the link to share exactly what you see.</p>
   </aside>
 
   <main class="mapwrap" id="mapwrap">
     <canvas id="map" aria-label="Map of alert areas and cameras. Click an area or camera for details."></canvas>
     <div class="legend" id="legend"><span>Scroll or pinch to zoom, drag to pan. Click an alert area or a camera.</span><span class="hscale" id="hscale" hidden>Alerts per cell <i style="background:var(--h1)"></i><i style="background:var(--h2)"></i><i style="background:var(--h3)"></i><i style="background:var(--h4)"></i> <span id="hmax"></span></span></div>
-    <div class="loading" id="loading">Loading 21,000 alert areas and 16,000 cameras…</div>
+    <div class="loading" id="loading">Loading 21,000 alert areas and 19,000 cameras…</div>
 
     <div class="timebar">
       <div class="row">
